@@ -1,23 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>minha galeria do gremio</title>
+    <title>Galeria do Grêmio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a1e3c 0%, #1a2e4c 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #fff, #0a1e3c, #fff, transparent);
+            margin: 10px auto;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: #ffd700;
+        }
+
+        .card-imagem {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-imagem {
+            transform: scale(1.05);
+        }
+
+        .card-info {
+            padding: 20px;
+            background: linear-gradient(135deg, #0a1e3c 0%, #1e3a5f 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .card-info h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-info p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .escudo {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .escudo-img {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .galeria {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+
+        /* Efeito de brilho nas bordas */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #0a1e3c, #ffd700, #0a1e3c, #ffd700);
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card {
+            position: relative;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        footer {
+            color: white;
+            margin-top: 20px;
+            text-align: center;
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
-
-
-
-
-
-
 <body>
-gremio 
-<img src="https://rdplanalto.com/wp-content/uploads/2024/05/default.jpg">
+    <div class="container">
+        <h1>⭐ IMORTAL GALERIA ⭐</h1>
+        
+        <div class="galeria">
+            <!-- Card 1 -->
+            <div class="card">
+                <img class="card-imagem" src="https://via.placeholder.com/400x250/0a1e3c/ffffff?text=Grêmio+Futebol+Clube" alt="Escudo do Grêmio">
+                <div class="card-info">
+                    <h3>Escudo Oficial</h3>
+                    <p>Fundação: 15/09/1903</p>
+                </div>
+            </div>
 
-    
+            <!-- Card 2 -->
+            <div class="card">
+                <img class="card-imagem" src="https://via.placeholder.com/400x250/ffd700/0a1e3c?text=Estádio+Olímpico" alt="Estádio Olímpico">
+                <div class="card-info">
+                    <h3>Estádio Olímpico</h3>
+                    <p>Monumental do Grêmio</p>
+                </div>
+            </div>
 
+            <!-- Card 3 -->
+            <div class="card">
+                <img class="card-imagem" src="https://via.placeholder.com/400x250/0a1e3c/ffffff?text=Arena+do+Grêmio" alt="Arena do Grêmio">
+                <div class="card-info">
+                    <h3>Arena do Grêmio</h3>
+                    <p>Capacidade: 55.662</p>
+                </div>
+            </div>
 
+            <!-- Card 4 -->
+            <div class="card">
+                <img class="card-imagem" src="https://via.placeholder.com/400x250/ffd700/0a1e3c?text=Mundial+1983" alt="Mundial 1983">
+                <div class="card-info">
+                    <h3>Mundial 1983</h3>
+                    <p>Campeão do Mundo</p>
+                </div>
+            </div>
 
+            <!-- Card 5 -->
+            <div class="card">
+                <img class="card-imagem" src="https://via.placeholder.com/400x250/0a1e3c/ffffff?text=Libertadores" alt="Libertadores">
+                <div class="card-info">
+                    <h3>Libertadores</h3>
+                    <p>1983, 1995, 2017</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <img class="card-imagem" src="https://via.placeholder.com/400x250/ffd700/0a1e3c?text=Ídolos" alt="Ídolos do Grêmio">
+                <div class="card-info">
+                    <h3>Ídolos Eternos</h3>
+                    <p>Renato, Danrlei, Geromel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="escudo">
+            <img class="escudo-img" src="https://via.placeholder.com/80x80/0a1e3c/ffd700?text=Grêmio" alt="Escudo Grêmio">
+        </div>
+    </div>
+
+    <footer>
+        <p>Grêmio Foot-Ball Porto Alegrense - O Imortal Tricolor</p>
+    </footer>
 </body>
 </html>
